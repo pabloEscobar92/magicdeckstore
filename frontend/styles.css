@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --sky-1: #dceefb;
   --sky-2: #c9e4f6;
   --sky-3: #a9d1ee;
@@ -493,5 +493,70 @@ textarea {
 
   h1 {
     max-width: none;
+  }
+}
+
+.viewer-layout-with-preview {
+  grid-template-columns: 280px minmax(0, 1fr) 320px;
+}
+
+.preview-panel {
+  padding: 20px;
+  align-self: start;
+  position: sticky;
+  top: 72px;
+}
+
+.preview-panel-header {
+  margin-bottom: 14px;
+}
+
+#preview-title {
+  font-size: 1.4rem;
+}
+
+#card-preview {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d5e0e9;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0, #f8fbfd 100%);
+  overflow: hidden;
+}
+
+#card-preview.card-preview-loading,
+#card-preview.card-preview-empty,
+#card-preview.card-preview-error {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.card-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-name.is-hoverable {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.card-name.is-hoverable:hover {
+  color: #0a4b95;
+}
+
+@media (max-width: 1340px) {
+  .viewer-layout-with-preview {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+
+  .preview-panel {
+    grid-column: 1 / -1;
+    position: static;
   }
 }
