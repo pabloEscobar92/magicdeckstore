@@ -1,0 +1,20 @@
+Mazo
+1 Llanura (KTK) 250
+5 Montaña (KTK) 256
+3 Fundición sagrada (GRN) 254
+1 Fundición sagrada (EOE) 256
+2 Atalaya inspiradora (OTJ) 269
+2 Atalaya inspiradora (KLR) 283
+4 Incendiar la torre (WOE) 153
+4 Evangelista sanguina (LCI) 34
+3 Delney, vigía sagaz (MKM) 12
+4 Garra a sueldo (BLB) 140
+4 Arabella, muñeca abandonada (DSK) 208
+4 Umbral de Solardiente (DFT) 264
+4 Voz de la victoria (TDM) 33
+4 Tirador con mucha chispa (TDM) 121
+4 Protagonista del estadio (TDM) 122
+2 Campamento dálkovan (TDM) 253
+3 Suki, rescatadora valerosa (TLA) 37
+4 Ascenso del maestro del fuego (TLA) 137
+2 Pasaje multiversal (OM1) 181

@@ -1,0 +1,17 @@
+Mazo
+1 Cultivos descuidados (MID) 265
+6 Bosque (MKM) 286
+4 Conecornio majestuoso (WOE) 25
+4 Aplastador arbustivo (SNC) 160
+7 Llanura (MKM) 278
+4 Compañero con espíritus (NEO) 38
+4 Arboleda radiante (DMU) 253
+4 Gnomo de mercado (LCI) 22
+4 Caso del invernadero cerrado (MKM) 155
+4 Caso del Portal Express (MKM) 8
+4 Agricultora ambiciosa (MID) 2
+1 Atrio exuberante (MKM) 263
+1 Maleza Bordenavaja (ONE) 257
+4 Exploradora del cenote (LCI) 178
+4 Boseiju alcanza el cielo (NEO) 177
+4 Supervisora de aglomeraciones (MKM) 193

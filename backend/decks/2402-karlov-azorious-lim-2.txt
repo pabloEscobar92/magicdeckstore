@@ -1,0 +1,19 @@
+Mazo
+2 Investigadora wojek (MKM) 36
+4 Conecornio majestuoso (WOE) 25
+4 Detective con buen ojo (MKM) 223
+4 Inspector novato (MKM) 29
+3 Alquist Proft, indagador profesional (MKM) 185
+9 Llanura (MKM) 278
+4 Caso de las pruebas robadas (MKM) 9
+1 Interrogatorio exhaustivo (MKM) 222
+2 De eso nada (MKM) 28
+4 Testigo de granito (MKM) 206
+2 Basta de mentiras (MKM) 221
+4 Custodio del perímetro (MKM) 31
+5 Isla (MKM) 280
+2 Inspector del proyector (MKM) 68
+2 Tecnómana forense (MKM) 57
+1 Archivo meticuloso (MKM) 264
+3 Cala tranquila (MOM) 275
+4 Arroyo solitario (OTJ) 260

@@ -1,0 +1,13 @@
+Mazo
+4 Caso del festín intacto (MKM) 10
+24 Llanura (EOE) 268
+4 Santificador del interior (FDN) 730
+4 Compañero de manada de Ajani (FDN) 135
+4 Momento de triunfo (FDN) 500
+2 Canalizador de esencias (BLB) 12
+2 Ejemplar de la luz (FDN) 11
+4 Menú de batalla (FIN) 9
+4 Incursión de requisición (OTJ) 26
+2 Giada, fuente de esperanza (FDN) 141
+2 Solgénito eminente (EOE) 15
+4 Aeris Gainsborough (FIN) 4

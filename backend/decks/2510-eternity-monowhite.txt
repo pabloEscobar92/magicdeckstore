@@ -1,0 +1,12 @@
+Mazo
+20 Llanura (KTK) 250
+4 Armadura etérea (RTR) 9
+4 Vendedora de libros de hechizos (WOE) 31
+4 Pluma del vuelo (BLB) 13
+4 Saqueadora optimista (DSK) 21
+4 Rescate de fragmentista (DSK) 29
+4 Protegido por fantasmas (DSK) 30
+4 Superviviente veterano (DSK) 40
+4 Desgarrar zurcidos (EOE) 34
+4 Una tejedora caritativa (OM1) 14
+4 Acróbata tejemaravillas (OM1) 159

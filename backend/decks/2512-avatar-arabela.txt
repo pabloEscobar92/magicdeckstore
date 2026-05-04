@@ -1,0 +1,20 @@
+Mazo
+7 Llanura (KTK) 250
+4 Montaña (KTK) 256
+4 Umbral de Solardiente (DFT) 264
+2 Atalaya inspiradora (OTJ) 269
+2 Atalaya inspiradora (KLR) 283
+2 Fundición sagrada (GRN) 254
+1 Fundición sagrada (EOE) 256
+4 Protegido por fantasmas (DSK) 30
+4 Voz de la victoria (TDM) 33
+4 Hélice de relámpagos (MKM) 218
+4 Tirador con mucha chispa (TDM) 121
+4 Protagonista del estadio (TDM) 122
+4 Robot anidador (DFT) 22
+3 Anim Pakal, la Milésima Luna (LCI) 223
+3 Delney, vigía sagaz (MKM) 12
+3 Arabella, muñeca abandonada (DSK) 208
+2 Solgénito eminente (EOE) 15
+2 Llamada de la líder de guerra (MKM) 242
+1 Evangelista sanguina (LCI) 34

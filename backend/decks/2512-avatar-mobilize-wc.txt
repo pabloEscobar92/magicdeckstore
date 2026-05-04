@@ -19,4 +19,4 @@ Mazo
 4 Protagonista del estadio (TDM) 122
 2 Llanura (KTK) 250
 2 Conquistador estentóreo (TDM) 5
-4 Umbral de Solardiente (DFT) 264
+4 Umbral de Solardiente (DFT) 264

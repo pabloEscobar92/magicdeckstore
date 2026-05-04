@@ -46,6 +46,7 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
             payload = self.read_json_body()
             raw_text = str(payload.get("rawText", "")).strip()
             name = str(payload.get("name", "")).strip()
+            source_filename = str(payload.get("sourceFilename", "")).strip()
         except (json.JSONDecodeError, UnicodeDecodeError):
             self.send_error(HTTPStatus.BAD_REQUEST, "JSON invalido")
             return
@@ -54,7 +55,7 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
             self.send_error(HTTPStatus.BAD_REQUEST, "Falta el texto del mazo")
             return
 
-        saved = DECK_REPOSITORY.write(name, raw_text)
+        saved = DECK_REPOSITORY.write(name, raw_text, source_filename)
         self.respond_json(saved, status=HTTPStatus.CREATED)
 
     def do_DELETE(self) -> None:

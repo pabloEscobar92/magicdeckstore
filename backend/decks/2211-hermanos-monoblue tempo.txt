@@ -1,0 +1,16 @@
+Mazo
+2 Considerar (MID) 44
+20 Isla (BRO) 271
+3 Escabullirse (SNC) 62
+3 Esperanza en extinción (MID) 51
+3 Horadar el hechizo (NEO) 80
+4 Indagador de secretos (MID) 47
+2 Sincopar (DAR) 67
+4 Hacer desaparecer (SNC) 49
+2 Impulso (DMU) 55
+2 Negar (RIX) 44
+3 Sed de descubrimientos (VOW) 85
+4 Djinn arrogante (DMU) 52
+2 Otawara, ciudad flotante (NEO) 271
+2 Fundición de Mishra (BRO) 265
+4 Terror tolariano (DMU) 72

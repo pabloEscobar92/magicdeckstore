@@ -1,9 +1,10 @@
 ﻿from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 
-from deck import Deck, infer_name_from_text, slugify
+from deck import Deck
 
 
 class DeckRepository:
@@ -24,18 +25,11 @@ class DeckRepository:
             )
         ]
 
-    def write(self, name: str, raw_text: str) -> dict:
+    def write(self, name: str, raw_text: str, source_filename: str = "") -> dict:
         self.ensure_dir()
 
-        normalized_name = name.strip() or infer_name_from_text(raw_text)
-        slug = slugify(normalized_name)
-        target = self.decks_dir / f"{slug}.txt"
-        suffix = 2
-
-        while target.exists():
-            target = self.decks_dir / f"{slug}-{suffix}.txt"
-            suffix += 1
-
+        base_name = self._resolve_base_name(name, raw_text, source_filename)
+        target = self._build_unique_target(base_name)
         target.write_text(raw_text.strip() + os.linesep, encoding="utf-8")
         return Deck.from_file(target).to_dict()
 
@@ -46,3 +40,38 @@ class DeckRepository:
             return False
         target.unlink()
         return True
+
+    def _resolve_base_name(self, name: str, raw_text: str, source_filename: str) -> str:
+        if source_filename.strip():
+            return self._sanitize_filename(Path(source_filename).stem)
+
+        if name.strip():
+            return self._sanitize_filename(name.strip())
+
+        inferred_name = self._infer_name_from_text(raw_text)
+        return self._sanitize_filename(inferred_name)
+
+    def _build_unique_target(self, base_name: str) -> Path:
+        target = self.decks_dir / f"{base_name}.txt"
+        suffix = 2
+
+        while target.exists():
+            target = self.decks_dir / f"{base_name}-{suffix}.txt"
+            suffix += 1
+
+        return target
+
+    def _sanitize_filename(self, value: str) -> str:
+        sanitized = re.sub(r'[<>:"/\\|?*]+', " ", value)
+        sanitized = re.sub(r"\s+", " ", sanitized).strip().rstrip(".")
+        return sanitized or "Nuevo mazo"
+
+    def _infer_name_from_text(self, raw_text: str) -> str:
+        for line in raw_text.splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.lower() == "deck":
+                continue
+            match = re.match(r"^\d+\s+(.+?)(?:\s+\([A-Z0-9]{2,6}\)\s+\d+[A-Z]?)?$", stripped, re.I)
+            if match:
+                return f"Mazo con {match.group(1).strip()}"
+        return "Nuevo mazo"

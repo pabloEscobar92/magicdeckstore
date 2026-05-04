@@ -1,6 +1,9 @@
+﻿const HOME_REFRESH_INTERVAL_MS = 5000;
+
 const homeState = {
   decks: [],
   query: "",
+  importedFilename: "",
 };
 
 const homeElements = {
@@ -19,8 +22,10 @@ homeElements.form.addEventListener("submit", handleImport);
 homeElements.deckFile.addEventListener("change", handleFileUpload);
 homeElements.search.addEventListener("input", handleSearch);
 homeElements.sampleButton.addEventListener("click", handleSampleLoad);
+window.addEventListener("focus", refreshHomeDecksSilently);
 
 initializeHome();
+setInterval(refreshHomeDecksSilently, HOME_REFRESH_INTERVAL_MS);
 
 async function initializeHome() {
   try {
@@ -28,6 +33,15 @@ async function initializeHome() {
     renderHomeDeckList();
   } catch (error) {
     setFeedback(homeElements.feedback, "No he podido conectar con el servidor local.", true);
+  }
+}
+
+async function refreshHomeDecksSilently() {
+  try {
+    homeState.decks = await fetchDecks();
+    renderHomeDeckList();
+  } catch (error) {
+    // Keep the current UI state if the refresh fails.
   }
 }
 
@@ -49,8 +63,9 @@ async function handleImport(event) {
   }
 
   try {
-    const saved = await saveDeck(deckName, deckText);
-    homeState.decks.unshift(saved);
+    const saved = await saveDeck(deckName, deckText, homeState.importedFilename);
+    homeState.decks = await fetchDecks();
+    homeState.importedFilename = "";
     homeElements.form.reset();
     setFeedback(homeElements.feedback, `Mazo "${saved.name}" guardado en backend/decks/${saved.filename}.`);
     renderHomeDeckList();
@@ -65,11 +80,10 @@ function handleFileUpload(event) {
     return;
   }
 
+  homeState.importedFilename = file.name;
   file.text().then((content) => {
     homeElements.deckText.value = content;
-    if (!homeElements.deckName.value.trim()) {
-      homeElements.deckName.value = file.name.replace(/\.[^.]+$/, "");
-    }
+    homeElements.deckName.value = file.name.replace(/\.[^.]+$/, "");
     setFeedback(homeElements.feedback, `Archivo "${file.name}" cargado. Revisalo y pulsa guardar.`);
   });
 }
@@ -80,6 +94,7 @@ function handleSearch(event) {
 }
 
 function handleSampleLoad() {
+  homeState.importedFilename = "";
   homeElements.deckName.value = "Boros Convoke";
   homeElements.deckText.value = sampleDeck;
   setFeedback(homeElements.feedback, "He cargado un ejemplo para que pruebes la vista.");

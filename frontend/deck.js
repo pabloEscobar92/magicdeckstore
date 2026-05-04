@@ -1,3 +1,5 @@
+﻿const VIEWER_REFRESH_INTERVAL_MS = 5000;
+
 const viewerState = {
   decks: [],
   query: "",
@@ -20,20 +22,37 @@ const viewerElements = {
 
 viewerElements.search.addEventListener("input", handleViewerSearch);
 viewerElements.deleteButton.addEventListener("click", handleDelete);
+window.addEventListener("focus", refreshViewerDecksSilently);
 
 initializeViewer();
+setInterval(refreshViewerDecksSilently, VIEWER_REFRESH_INTERVAL_MS);
 
 async function initializeViewer() {
   try {
     viewerState.decks = await fetchDecks();
-    if (!viewerState.decks.some((deck) => deck.id === viewerState.selectedDeckId)) {
-      viewerState.selectedDeckId = viewerState.decks[0]?.id ?? null;
-    }
+    ensureSelectedDeck();
     renderViewer();
     syncViewerUrl();
   } catch (error) {
     viewerElements.deckList.innerHTML =
       '<p class="feedback">No he podido conectar con el servidor local.</p>';
+  }
+}
+
+async function refreshViewerDecksSilently() {
+  try {
+    viewerState.decks = await fetchDecks();
+    ensureSelectedDeck();
+    renderViewer();
+    syncViewerUrl();
+  } catch (error) {
+    // Keep the current UI state if the refresh fails.
+  }
+}
+
+function ensureSelectedDeck() {
+  if (!viewerState.decks.some((deck) => deck.id === viewerState.selectedDeckId)) {
+    viewerState.selectedDeckId = viewerState.decks[0]?.id ?? null;
   }
 }
 
@@ -54,8 +73,8 @@ async function handleDelete() {
 
   try {
     await removeDeck(deck.id);
-    viewerState.decks = viewerState.decks.filter((item) => item.id !== deck.id);
-    viewerState.selectedDeckId = viewerState.decks[0]?.id ?? null;
+    viewerState.decks = await fetchDecks();
+    ensureSelectedDeck();
     renderViewer();
     syncViewerUrl();
   } catch (error) {

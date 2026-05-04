@@ -8,13 +8,13 @@
   return payload.map((item) => hydrateDeck(item)).filter(Boolean);
 }
 
-async function saveDeck(name, rawText) {
+async function saveDeck(name, rawText, sourceFilename = "") {
   const response = await fetch("/api/decks", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, rawText }),
+    body: JSON.stringify({ name, rawText, sourceFilename }),
   });
 
   if (!response.ok) {
@@ -42,6 +42,7 @@ function hydrateDeck(item) {
 
   return {
     ...parsed,
+    name: item.name,
     id: item.id,
     filename: item.filename,
     createdAt: item.createdAt,

@@ -1,0 +1,21 @@
+Mazo
+1 Gigante ataviado de reino (ELD) 26
+1 Bestia enamoradiza (ELD) 165
+1 Templo de la abundancia (THB) 248
+4 Arenas florecientes (M21) 244
+10 Llanura (M21) 260
+10 Bosque (M21) 272
+3 Hada matriarca (ELD) 11
+4 Posadero de Extremuro (ELD) 151
+2 Escudero llamargéntea (ELD) 31
+3 Pastor del rebaño (ELD) 28
+3 Escudero del Coto de Garen (ELD) 158
+4 Corcel de viajero (ELD) 204
+2 Alumbrasendas misterioso (ELD) 22
+2 Estratega del Valle de Arden (ELD) 5
+3 Guardabosque de Roblehogar (ELD) 212
+1 Matagigantes (ELD) 14
+1 Hidra escamas de hierro (THB) 296
+1 Enviada de la victoria (THB) 289
+3 Luz de destierro (THB) 4
+1 Fuerza primordial (M21) 197

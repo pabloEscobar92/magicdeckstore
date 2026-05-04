@@ -1,0 +1,33 @@
+Mazo
+4 Anexo impío // Cámara de rituales (DSK) 118
+8 Pantano (KTK) 254
+3 Playas de Fangoscuro (ONE) 250
+4 Río subterráneo (BRO) 267
+4 Umbral de Lagosombrío (DSK) 260
+4 Arrecife sin sosiego (LCI) 282
+2 Disparar al sheriff (OTJ) 106
+4 Feérico mente maestra (MOM) 58
+1 Cloacas de la Subciudad (MKM) 270
+4 Archidemonio del Dros (ONE) 82
+2 Jace, la Mente Perfeccionada (ONE) 57
+2 Bronco cáustico (OTJ) 82
+2 Tartamudear el hechizo (WOE) 69
+4 Golpe a la garganta (BRO) 102
+4 Coacción (M21) 96
+2 Puerto Fontanal (BLB) 253
+2 Torturador del fin del mundo (DSK) 94
+3 Ungir con aflicción (ONE) 81
+1 Destrizar (DMU) 89
+
+Sideboard
+2 Negar (RIX) 44
+2 Sueños de acero y aceite (BRO) 92
+1 Jace, la Mente Perfeccionada (ONE) 57
+1 Ungir con aflicción (ONE) 81
+1 Tormento agotador (DSK) 124
+1 Aspiradora de fantasmas (DSK) 248
+1 Encubrimiento mortal (MKM) 83
+1 Robo indignante (MKM) 97
+1 Mandato de Gix (BRO) 97
+2 Destrizar (DMU) 89
+2 Liliana del Velo (DMU) 97

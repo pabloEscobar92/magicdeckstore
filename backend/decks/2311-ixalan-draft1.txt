@@ -1,0 +1,36 @@
+Mazo
+3 Centinela del sol (RIX) 26
+3 Cuernorromo vigilante (RIX) 23
+3 Momento de triunfo (RIX) 15
+2 Negar (RIX) 44
+1 Alma de los rápidos (RIX) 56
+2 Forjados en la mar (RIX) 50
+1 Aspirante a huesteceleste (RIX) 21
+1 Ataduras luminosas (RIX) 12
+1 Amuleto del viajero (RIX) 184
+1 Heraldo capa de niebla (RIX) 43
+1 Incursión acuática (RIX) 32
+2 Recorreagujas (RIX) 57
+2 Secretos de la ciudad dorada (RIX) 52
+9 Isla (LTR) 265
+8 Llanura (LTR) 263
+
+Sideboard
+1 Ráptor de compañía (RIX) 19
+1 Momento de triunfo (RIX) 15
+1 Esperanza desgarradora (RIX) 3
+1 Bribonear (RIX) 39
+1 Recuperar (RIX) 84
+2 En picado (RIX) 143
+1 Marea rompiente (RIX) 34
+1 Devoción de la escudera (RIX) 25
+1 Fauces pavorosas colosal (RIX) 125
+1 Destino terrible (RIX) 75
+1 Campeón del Crepúsculo (RIX) 64
+1 Tritón de la niebla (RIX) 164
+1 Cañonear (RIX) 93
+1 Expulsar de Orazca (RIX) 37
+1 Buceadora del río (RIX) 47
+1 Rayo purificador (RIX) 4
+1 Arroyo forestal (RIX) 191
+1 Naturalizar (RIX) 139

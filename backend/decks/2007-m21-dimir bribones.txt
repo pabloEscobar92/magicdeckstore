@@ -1,0 +1,34 @@
+Compañero
+1 Lurrus del Nido de Ensueño (IKO) 226
+
+Mazo
+4 Asaltavientos tritón (ZNR) 70
+4 Ladrón sagaz planeador (ZNR) 236
+4 Sicaria del gremio de ladrones (M21) 125
+4 Gárgola de Vendaleza (ELD) 71
+3 Despertar de Agadeem (ZNR) 90
+2 Aferrarse al polvo (THB) 87
+1 Golpe altanero (GRN) 37
+4 Ahogar en el lago (ELD) 188
+3 Adentrarse en las fábulas (ELD) 50
+2 Negación elevada (M21) 56
+2 Negar (M20) 69
+4 Palabra de poder: matar (AFR) 114
+4 Senda de Aguasclaras (ZNR) 260
+1 Pasaje de leyenda (ELD) 244
+3 Pasaje de leyenda (M21) 246
+2 Colmena del ojo tirano (AFR) 258
+6 Isla (NEO) 286
+3 Pantano (NEO) 288
+4 Templo del engaño (THB) 245
+
+Sideboard
+1 Aferrarse al polvo (THB) 87
+1 Golpe altanero (GRN) 37
+1 Negar (M20) 69
+3 Temor incapacitante (KHM) 82
+1 Acto desalmado (IKO) 91
+1 Lurrus del Nido de Ensueño (IKO) 226
+2 Disputa mística (ELD) 58
+1 Lanza Sombría (THB) 236
+4 Espectro de aerorruina (ZNR) 125

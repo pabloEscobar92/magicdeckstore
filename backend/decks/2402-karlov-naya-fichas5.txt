@@ -1,0 +1,19 @@
+Mazo
+1 Cultivos descuidados (MID) 265
+6 Llanura (MKM) 278
+4 Llamada de la líder de guerra (MKM) 242
+4 Conecornio majestuoso (WOE) 25
+1 Montaña (MKM) 284
+2 Bosque (MKM) 286
+4 Compañero con espíritus (NEO) 38
+4 Cresta boscosa (DMU) 260
+4 Arboleda radiante (DMU) 253
+4 Cumbres sagradas (DMU) 254
+4 Gnomo de mercado (LCI) 22
+4 Veterano lunarca (MID) 27
+4 Caso del invernadero cerrado (MKM) 155
+4 Caso del Portal Express (MKM) 8
+4 Patrullera jinete de polillas (NEO) 30
+1 Atrio exuberante (MKM) 263
+1 Maleza Bordenavaja (ONE) 257
+4 Exploradora del cenote (LCI) 178

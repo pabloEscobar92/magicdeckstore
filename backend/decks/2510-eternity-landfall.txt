@@ -1,0 +1,16 @@
+Mazo
+4 Chocobo de viaje (FIN) 210
+7 Bosque (EOE) 276
+4 Arco árido (OTJ) 252
+4 Hidra musgogénita (FDN) 107
+4 Terrenos expansivos (FDN) 262
+4 Elfos de Llanowar (FDN) 227
+4 Azote del bosque salvaje (FDN) 236
+4 Chocobo de Sazh (FIN) 200
+4 Túnel de escape (MKM) 261
+2 Pasaje de leyenda (BLB) 252
+4 Nibelheim en llamas (FIN) 146
+3 Montaña (EOE) 274
+4 Ordalía de Nylea (FDN) 641
+4 Tifa Lockhart (FIN) 206
+4 Velo de piel de serpiente (FDN) 233

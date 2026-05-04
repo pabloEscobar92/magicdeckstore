@@ -1,0 +1,33 @@
+Mazo
+3 Impulso agresivo (RIX) 122
+4 Portadora de jade (RIX) 134
+3 Heraldo capa de niebla (RIX) 43
+3 Alma de los rápidos (RIX) 56
+1 Arroyo forestal (RIX) 191
+1 Bribonear (RIX) 39
+2 En picado (RIX) 143
+2 Marea rompiente (RIX) 34
+1 Guardiana jurada (RIX) 58
+2 Negar (RIX) 44
+1 Incursión acuática (RIX) 32
+1 Terrenos expansivos (RIX) 186
+1 Presagio de la sabiduría del río (RIX) 48
+8 Isla (LTR) 265
+7 Bosque (LTR) 271
+
+Sideboard
+1 Dispersar en el viento (RIX) 46
+2 Acechadora del bosque dorado (RIX) 131
+1 Veterana resistente (RIX) 132
+1 Sumergirse en el recuerdo (RIX) 38
+1 Ráptor de Orazca (RIX) 108
+1 Reliquia de Orazca (RIX) 181
+1 Corsario velacometa (RIX) 41
+2 Amuleto del viajero (RIX) 184
+1 Negar (RIX) 44
+1 Saqueador despiadado (RIX) 81
+1 Naturalizar (RIX) 139
+1 Recorreagujas (RIX) 57
+1 Interrogatorio oscuro (RIX) 65
+1 Fanático flamígero (RIX) 101
+1 Dorsoaleta de Orazca (RIX) 140

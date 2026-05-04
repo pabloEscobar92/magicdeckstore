@@ -1,0 +1,20 @@
+Mazo
+2 Halcón de sanador (GRN) 14
+24 Llanura (RIX) 192
+3 Momento de triunfo (RIX) 15
+1 Caballero de la gracia (DAR) 23
+1 Ángel resplandeciente (M19) 34
+1 Unicornio de la meseta (DAR) 27
+4 Ataduras luminosas (RIX) 12
+1 Naufragio consumado (XLN) 34
+3 Shalai, voz de la abundancia (DAR) 35
+4 Ángel de Serra (DAR) 33
+1 Tribunal del Cónclave (GRN) 6
+1 Guardiana de Serra (M19) 284
+1 Loxodón venerado (GRN) 30
+2 Recibimiento de Ajani (M19) 6
+1 Con las alas de Serra (DAR) 28
+2 Heraldo de la fe (M19) 13
+3 Compañero de manada de Ajani (M19) 5
+4 Capellana del amanecer (M19) 10
+1 Revivificar (M19) 35

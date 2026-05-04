@@ -1,0 +1,38 @@
+Mazo
+1 Buscadora del sol (LCI) 210
+2 Rana dardoponzoña (LCI) 207
+1 Capibara apacible (LCI) 175
+1 El pozo sin fondo (LCI) 56
+1 Luchador mecánico (LCI) 49
+1 Iceberg invertido (LCI) 60
+1 Puerta rompecabezas de Orazca (LCI) 68
+2 Sierpe crestada de las cavernas (LCI) 57
+1 Exploradora aeroacuática (LCI) 84
+2 Rugido de la reliquia (LCI) 71
+1 Canto estupefaciente (LCI) 77
+1 Magnitud magnífica (LCI) 214
+1 Sabio de los días (LCI) 73
+2 Guía de los Heraldos del Río (LCI) 209
+4 Reminiscencia ancestral (LCI) 45
+1 Sin aire (LCI) 69
+2 Explorador de los Heraldos del Río (LCI) 72
+1 Nicanzil, conductora de corrientes (LCI) 236
+1 Error que te hunde (LCI) 46
+1 Sombrero de pirata (LCI) 70
+1 Vivero escondido (LCI) 276
+6 Isla (LTR) 265
+5 Bosque (LTR) 271
+
+Sideboard
+1 Guadaña malamet (LCI) 200
+1 Último golpe de Huatli (LCI) 190
+1 Antorcha fuegosol (LCI) 167
+1 Ser historia (LCI) 59
+2 Pozo de las ofrendas (LCI) 278
+1 Cerbatana de cazador (LCI) 255
+2 Ayuda de los ancestros (LCI) 132
+1 Peso muerto (LCI) 99
+1 Ofrenda fanática (LCI) 105
+1 Reunión familiar (LCI) 13
+1 Caída desafortunada (LCI) 82
+1 Martillo de deconstrucción (LCI) 9

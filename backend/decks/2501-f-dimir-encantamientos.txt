@@ -1,0 +1,22 @@
+Mazo
+4 Sirena con catalejo (LCI) 78
+4 Pantano (FDN) 277
+4 Miedo al aislamiento (DSK) 58
+4 Ahogadora de Pozos Desbordados (DSK) 59
+3 Curiosidad imperecedera (DSK) 51
+3 Kaito, Fin de las Pesadillas (DSK) 220
+4 Isla (FDN) 275
+2 Destrizar (DMU) 89
+1 Golpe a la garganta (BRO) 102
+4 Este pueblo es demasiado pequeño (OTJ) 74
+3 Pesadilla sin esperanza (WOE) 95
+4 Talento: cazatormentas (BLB) 75
+4 No hay donde huir (DSK) 111
+2 Laguna lúgubre (FDN) 261
+4 Acuífero contaminado (DMU) 245
+1 Umbral de Lagosombrío (DSK) 260
+4 Manantiales estancados (OTJ) 264
+1 Templo del engaño (FDN) 697
+1 Templo del engaño (THB) 245
+2 Cloacas de la Subciudad (MKM) 270
+1 Playas de Fangoscuro (ONE) 250
