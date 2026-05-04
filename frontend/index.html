@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magicstore Decks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="brand-copy">
+          <span class="brand-main">MTGA</span>
+          <span class="brand-accent">Decks</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="/">Importar</a>
+        <a href="/">Mazos</a>
+        <a href="/deck">Visualizar</a>
+      </nav>
+
+      <div class="account-links">
+        <a href="/deck">Login</a>
+        <a href="/">Register</a>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <section class="intro-band">
+        <div class="intro-copy">
+          <p class="kicker">Coleccion local de Arena</p>
+          <h1>Importa tus mazos</h1>
+          <p>
+            Esta portada se centra en cargar mazos y ver la biblioteca. Al pulsar en cualquiera,
+            entraras en la pagina de visualizacion.
+          </p>
+        </div>
+      </section>
+
+      <main class="home-layout">
+        <aside class="panel import-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Create Deck</p>
+              <h2>Importador</h2>
+            </div>
+            <button id="sample-button" class="action-button secondary-button">Cargar ejemplo</button>
+          </div>
+
+          <form id="import-form" class="import-form">
+            <label class="field-label" for="deck-name">Nombre del mazo</label>
+            <input
+              id="deck-name"
+              name="deckName"
+              type="text"
+              placeholder="Por ejemplo: Azorius Control"
+            />
+
+            <label class="field-label" for="deck-text">Texto exportado</label>
+            <textarea
+              id="deck-text"
+              name="deckText"
+              rows="12"
+              placeholder="Deck&#10;4 Lightning Strike (DMU) 137&#10;..."
+            ></textarea>
+
+            <div class="import-actions">
+              <label class="action-button file-button" for="deck-file">Cargar archivo</label>
+              <input id="deck-file" type="file" accept=".txt,text/plain" />
+              <button type="submit" class="action-button primary-button">Guardar mazo</button>
+            </div>
+
+            <p id="import-feedback" class="feedback" aria-live="polite"></p>
+          </form>
+        </aside>
+
+        <section class="panel collection-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Decks</p>
+              <h2>Tus mazos</h2>
+            </div>
+          </div>
+
+          <label class="field-label" for="deck-search">Buscar</label>
+          <input id="deck-search" type="search" placeholder="Nombre o cartas" />
+
+          <div id="deck-list" class="deck-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="deck-item-template">
+      <a class="deck-item deck-link">
+        <span class="deck-item-name"></span>
+        <span class="deck-item-meta"></span>
+      </a>
+    </template>
+
+    <script src="/shared.js"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>

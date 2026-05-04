@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visor de Mazos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="brand-copy">
+          <span class="brand-main">MTGA</span>
+          <span class="brand-accent">Decks</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="/">Importar</a>
+        <a href="/">Mazos</a>
+        <a href="/deck">Visualizar</a>
+      </nav>
+
+      <div class="account-links">
+        <a href="/deck">Login</a>
+        <a href="/">Register</a>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <section class="intro-band viewer-intro">
+        <div class="intro-copy">
+          <p class="kicker">Deck Viewer</p>
+          <h1>Selecciona un mazo</h1>
+        </div>
+        <a class="action-button secondary-button back-link" href="/">Volver al importador</a>
+      </section>
+
+      <main class="viewer-layout">
+        <aside class="panel collection-panel viewer-sidebar">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Decks</p>
+              <h2>Biblioteca</h2>
+            </div>
+          </div>
+
+          <label class="field-label" for="deck-search">Buscar</label>
+          <input id="deck-search" type="search" placeholder="Nombre o cartas" />
+
+          <div id="deck-list" class="deck-list" aria-live="polite"></div>
+        </aside>
+
+        <section class="panel viewer-panel">
+          <div id="empty-state" class="empty-state">
+            <p class="panel-kicker">Sin seleccion</p>
+            <h2>Elige un mazo de la lista</h2>
+            <p>En cuanto pulses uno, se cargara aqui su contenido completo.</p>
+          </div>
+
+          <article id="deck-detail" class="deck-detail hidden">
+            <div class="deck-detail-header">
+              <div>
+                <p class="panel-kicker" id="detail-format">Mazo importado</p>
+                <h2 id="detail-name"></h2>
+              </div>
+              <button id="delete-button" class="action-button danger-button">Eliminar</button>
+            </div>
+
+            <div id="detail-meta" class="detail-meta"></div>
+            <div id="detail-sections" class="detail-sections"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <template id="deck-item-template">
+      <button class="deck-item" type="button">
+        <span class="deck-item-name"></span>
+        <span class="deck-item-meta"></span>
+      </button>
+    </template>
+
+    <template id="section-template">
+      <section class="card-section">
+        <div class="section-heading">
+          <h3></h3>
+          <span class="section-total"></span>
+        </div>
+        <div class="card-grid"></div>
+      </section>
+    </template>
+
+    <script src="/shared.js"></script>
+    <script src="/deck.js"></script>
+  </body>
+</html>
