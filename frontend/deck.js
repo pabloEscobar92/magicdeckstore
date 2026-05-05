@@ -1,10 +1,9 @@
-﻿const VIEWER_REFRESH_INTERVAL_MS = 5000;
-
 const viewerState = {
   decks: [],
   query: "",
   selectedDeckId: new URLSearchParams(window.location.search).get("id"),
   hoverRequestToken: 0,
+  activePreviewHost: null,
 };
 
 const viewerElements = {
@@ -19,16 +18,12 @@ const viewerElements = {
   deleteButton: document.getElementById("delete-button"),
   deckItemTemplate: document.getElementById("deck-item-template"),
   sectionTemplate: document.getElementById("section-template"),
-  preview: document.getElementById("card-preview"),
-  previewTitle: document.getElementById("preview-title"),
 };
 
 viewerElements.search.addEventListener("input", handleViewerSearch);
 viewerElements.deleteButton.addEventListener("click", handleDelete);
-window.addEventListener("focus", refreshViewerDecksSilently);
 
 initializeViewer();
-setInterval(refreshViewerDecksSilently, VIEWER_REFRESH_INTERVAL_MS);
 
 async function initializeViewer() {
   try {
@@ -39,17 +34,6 @@ async function initializeViewer() {
   } catch (error) {
     viewerElements.deckList.innerHTML =
       '<p class="feedback">No he podido conectar con el servidor local.</p>';
-  }
-}
-
-async function refreshViewerDecksSilently() {
-  try {
-    viewerState.decks = await fetchDecks();
-    ensureSelectedDeck();
-    renderViewer();
-    syncViewerUrl();
-  } catch (error) {
-    // Keep the current UI state if the refresh fails.
   }
 }
 
@@ -131,7 +115,7 @@ function renderViewerDetail() {
   viewerElements.detail.classList.toggle("hidden", !isVisible);
 
   if (!deck) {
-    resetCardPreview();
+    clearInlinePreview();
     return;
   }
 
@@ -139,7 +123,7 @@ function renderViewerDetail() {
   viewerElements.detailFormat.textContent = deck.formatHint;
   viewerElements.detailMeta.innerHTML = "";
   viewerElements.detailSections.innerHTML = "";
-  resetCardPreview();
+  clearInlinePreview();
 
   const chips = [
     `${deck.totalMainboard} cartas main`,
@@ -180,7 +164,10 @@ function renderViewerDetail() {
       cardMeta.textContent = buildCardMeta(card);
 
       cardName.addEventListener("mouseenter", () => {
-        loadCardPreview(card);
+        loadCardPreview(card, line);
+      });
+      line.addEventListener("mouseleave", () => {
+        clearInlinePreview(line);
       });
 
       left.appendChild(cardName);
@@ -193,15 +180,19 @@ function renderViewerDetail() {
   }
 }
 
-async function loadCardPreview(card) {
+async function loadCardPreview(card, host) {
+  clearInlinePreview();
   const requestToken = ++viewerState.hoverRequestToken;
-  viewerElements.previewTitle.textContent = card.name;
-  viewerElements.preview.className = "card-preview-loading";
-  viewerElements.preview.innerHTML = "<p>Cargando carta...</p>";
+  viewerState.activePreviewHost = host;
+
+  const preview = document.createElement("div");
+  preview.className = "card-hover-preview card-hover-preview-loading";
+  preview.innerHTML = "<p>Cargando carta...</p>";
+  host.appendChild(preview);
 
   try {
     const cardData = await fetchCardData(card);
-    if (requestToken !== viewerState.hoverRequestToken) {
+    if (requestToken !== viewerState.hoverRequestToken || viewerState.activePreviewHost !== host) {
       return;
     }
 
@@ -210,15 +201,15 @@ async function loadCardPreview(card) {
       throw new Error("Sin imagen disponible");
     }
 
-    viewerElements.preview.className = "";
-    viewerElements.preview.innerHTML = `<img class="card-preview-image" src="${imageUrl}" alt="${escapeHtml(card.name)}" />`;
+    preview.className = "card-hover-preview";
+    preview.innerHTML = `<img class="card-hover-preview-image" src="${imageUrl}" alt="${escapeHtml(card.name)}" />`;
   } catch (error) {
-    if (requestToken !== viewerState.hoverRequestToken) {
+    if (requestToken !== viewerState.hoverRequestToken || viewerState.activePreviewHost !== host) {
       return;
     }
 
-    viewerElements.preview.className = "card-preview-error";
-    viewerElements.preview.innerHTML = "<p>No se ha podido cargar la imagen de esta carta.</p>";
+    preview.className = "card-hover-preview card-hover-preview-error";
+    preview.innerHTML = "<p>No se ha podido cargar la imagen.</p>";
   }
 }
 
@@ -261,12 +252,18 @@ function getCardImageUrl(cardData) {
   return "";
 }
 
-function resetCardPreview() {
-  viewerState.hoverRequestToken += 1;
-  viewerElements.previewTitle.textContent = "Pasa por una carta";
-  viewerElements.preview.className = "card-preview-empty";
-  viewerElements.preview.innerHTML =
-    "<p>Al pasar el raton sobre el nombre de una carta, se mostrara aqui su imagen.</p>";
+function clearInlinePreview(expectedHost = null) {
+  const host = viewerState.activePreviewHost;
+  if (!host || (expectedHost && host !== expectedHost)) {
+    return;
+  }
+
+  const preview = host.querySelector(".card-hover-preview");
+  if (preview) {
+    preview.remove();
+  }
+
+  viewerState.activePreviewHost = null;
 }
 
 function escapeHtml(value) {
@@ -287,4 +284,3 @@ function syncViewerUrl() {
   }
   window.history.replaceState({}, "", url);
 }
-

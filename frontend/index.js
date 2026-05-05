@@ -1,5 +1,3 @@
-﻿const HOME_REFRESH_INTERVAL_MS = 5000;
-
 const homeState = {
   decks: [],
   query: "",
@@ -22,10 +20,8 @@ homeElements.form.addEventListener("submit", handleImport);
 homeElements.deckFile.addEventListener("change", handleFileUpload);
 homeElements.search.addEventListener("input", handleSearch);
 homeElements.sampleButton.addEventListener("click", handleSampleLoad);
-window.addEventListener("focus", refreshHomeDecksSilently);
 
 initializeHome();
-setInterval(refreshHomeDecksSilently, HOME_REFRESH_INTERVAL_MS);
 
 async function initializeHome() {
   try {
@@ -33,15 +29,6 @@ async function initializeHome() {
     renderHomeDeckList();
   } catch (error) {
     setFeedback(homeElements.feedback, "No he podido conectar con el servidor local.", true);
-  }
-}
-
-async function refreshHomeDecksSilently() {
-  try {
-    homeState.decks = await fetchDecks();
-    renderHomeDeckList();
-  } catch (error) {
-    // Keep the current UI state if the refresh fails.
   }
 }
 
