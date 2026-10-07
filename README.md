@@ -61,3 +61,5 @@ python backend/server.py
 
 Luego abre `http://localhost:8000`.
 
+![Portada de Magicstore](./asset/portada.png)
+
