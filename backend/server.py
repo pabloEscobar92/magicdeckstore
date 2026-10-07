@@ -20,9 +20,11 @@ DECK_REPOSITORY = DeckRepository(DECKS_DIR)
 
 class MagicstoreHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
+        """Configura el handler para servir las páginas de la carpeta frontend."""
         super().__init__(*args, directory=str(FRONTEND_ROOT), **kwargs)
 
     def do_GET(self) -> None:
+        """Responde a peticiones GET de la API de mazos o sirve una página HTML."""
         parsed = urlparse(self.path)
 
         if parsed.path == "/api/decks":
@@ -37,6 +39,7 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self) -> None:
+        """Guarda un mazo recibido en el cuerpo JSON de una petición POST."""
         parsed = urlparse(self.path)
         if parsed.path != "/api/decks":
             self.send_error(HTTPStatus.NOT_FOUND, "Endpoint no encontrado")
@@ -59,6 +62,7 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
         self.respond_json(saved, status=HTTPStatus.CREATED)
 
     def do_DELETE(self) -> None:
+        """Elimina un mazo indicado por el parámetro id de la URL."""
         parsed = urlparse(self.path)
         if parsed.path != "/api/decks":
             self.send_error(HTTPStatus.NOT_FOUND, "Endpoint no encontrado")
@@ -76,11 +80,13 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
         self.respond_json({"ok": True})
 
     def read_json_body(self) -> dict:
+        """Lee y deserializa el cuerpo JSON de una petición HTTP."""
         length = int(self.headers.get("Content-Length", "0"))
         body = self.rfile.read(length)
         return json.loads(body.decode("utf-8"))
 
     def respond_json(self, payload: dict | list, status: HTTPStatus = HTTPStatus.OK) -> None:
+        """Envía una respuesta HTTP JSON con el contenido y el estado indicados."""
         encoded = json.dumps(payload).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")

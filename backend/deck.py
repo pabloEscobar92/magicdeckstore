@@ -14,6 +14,7 @@ class Deck:
     filename: str
 
     def to_dict(self) -> dict:
+        """Convierte el objeto del mazo en un diccionario compatible con la API."""
         return {
             "id": self.id,
             "name": self.name,
@@ -24,6 +25,7 @@ class Deck:
 
     @classmethod
     def from_file(cls, path: Path) -> "Deck":
+        """Lee un archivo de texto y crea una instancia de mazo con sus metadatos."""
         raw_text = path.read_text(encoding="utf-8")
         stat = path.stat()
 
