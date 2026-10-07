@@ -41,3 +41,5 @@ Los archivos sin cartas reconocibles no aparecen en la biblioteca. Si no hay maz
 - `frontend/ui.js` y `frontend/styles.css`: utilidades y estilos de la interfaz.
 
 Las rutas `/`, `/index.html`, `/deck` y `/deck.html` abren el mismo visor. El parámetro `id` permite enlazar un mazo concreto, por ejemplo `/deck?id=nombre-del-mazo.txt`.
+
+![Portada de Magicstore](./asset/portada.png)
