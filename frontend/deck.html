@@ -27,24 +27,18 @@
       </div>
 
       <nav class="main-nav" aria-label="Principal">
-        <a href="/">Importar</a>
-        <a href="/">Mazos</a>
-        <a href="/deck">Visualizar</a>
+        <a href="/" aria-current="page">Visor de mazos</a>
       </nav>
 
-      <div class="account-links">
-        <a href="/deck">Login</a>
-        <a href="/">Register</a>
-      </div>
     </header>
 
     <div class="page-shell">
       <section class="intro-band viewer-intro">
         <div class="intro-copy">
-          <p class="kicker">Deck Viewer</p>
-          <h1>Selecciona un mazo</h1>
+          <p class="kicker">Colección local de Arena</p>
+          <h1>Visor de mazos</h1>
+          <p>Explora tu biblioteca y selecciona un mazo para ver sus cartas.</p>
         </div>
-        <a class="action-button secondary-button back-link" href="/">Volver al importador</a>
       </section>
 
       <main class="viewer-layout">
@@ -72,10 +66,9 @@
           <article id="deck-detail" class="deck-detail hidden">
             <div class="deck-detail-header">
               <div>
-                <p class="panel-kicker" id="detail-format">Mazo importado</p>
+                <p class="panel-kicker" id="detail-format">Mazo local</p>
                 <h2 id="detail-name"></h2>
               </div>
-              <button id="delete-button" class="action-button danger-button">Eliminar</button>
             </div>
 
             <div id="detail-meta" class="detail-meta"></div>
@@ -106,7 +99,6 @@
     <script src="/parser.js"></script>
     <script src="/api.js"></script>
     <script src="/ui.js"></script>
-    <script src="/shared.js"></script>
     <script src="/deck.js"></script>
   </body>
 </html>

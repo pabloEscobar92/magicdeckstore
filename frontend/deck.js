@@ -15,13 +15,11 @@ const viewerElements = {
   detailFormat: document.getElementById("detail-format"),
   detailMeta: document.getElementById("detail-meta"),
   detailSections: document.getElementById("detail-sections"),
-  deleteButton: document.getElementById("delete-button"),
   deckItemTemplate: document.getElementById("deck-item-template"),
   sectionTemplate: document.getElementById("section-template"),
 };
 
 viewerElements.search.addEventListener("input", handleViewerSearch);
-viewerElements.deleteButton.addEventListener("click", handleDelete);
 
 initializeViewer();
 
@@ -48,27 +46,6 @@ function handleViewerSearch(event) {
   renderViewerDeckList();
 }
 
-async function handleDelete() {
-  if (!viewerState.selectedDeckId) {
-    return;
-  }
-
-  const deck = viewerState.decks.find((item) => item.id === viewerState.selectedDeckId);
-  if (!deck) {
-    return;
-  }
-
-  try {
-    await removeDeck(deck.id);
-    viewerState.decks = await fetchDecks();
-    ensureSelectedDeck();
-    renderViewer();
-    syncViewerUrl();
-  } catch (error) {
-    viewerElements.detailMeta.innerHTML = '<span class="detail-chip">No se pudo borrar el mazo.</span>';
-  }
-}
-
 function renderViewer() {
   renderViewerDeckList();
   renderViewerDetail();
@@ -79,8 +56,10 @@ function renderViewerDeckList() {
   viewerElements.deckList.innerHTML = "";
 
   if (filteredDecks.length === 0) {
-    viewerElements.deckList.innerHTML =
-      '<p class="feedback">No hay mazos que coincidan con la busqueda.</p>';
+    const message = viewerState.decks.length === 0
+      ? "No hay mazos disponibles para visualizar."
+      : "No hay mazos que coincidan con la búsqueda.";
+    viewerElements.deckList.innerHTML = `<p class="feedback">${message}</p>`;
     return;
   }
 
@@ -130,7 +109,7 @@ function renderViewerDetail() {
     `${deck.totalSideboard} sideboard`,
     `${deck.totalUniqueCards} cartas distintas`,
     deck.filename,
-    `Importado el ${formatDate(deck.createdAt)}`,
+    `Modificado el ${formatDate(deck.createdAt)}`,
   ];
 
   for (const chipText of chips) {

@@ -20,7 +20,7 @@ function buildCardMeta(card) {
   if (card.setCode && card.collectorNumber) {
     return `${card.setCode} #${card.collectorNumber}`;
   }
-  return "Carta importada";
+  return "Sin datos de edición";
 }
 
 function formatDate(isoDate) {
@@ -29,13 +29,4 @@ function formatDate(isoDate) {
     month: "short",
     year: "numeric",
   }).format(new Date(isoDate));
-}
-
-function setFeedback(element, message, isError = false) {
-  if (!element) {
-    return;
-  }
-
-  element.textContent = message;
-  element.style.color = isError ? "#b14d4d" : "";
 }

@@ -1,24 +1,3 @@
-﻿const sampleDeck = `Deck
-4 Novice Inspector (MKM) 29
-3 Elspeth's Smite (MOM) 13
-2 Get Lost (LCI) 14
-4 Lightning Helix (MKM) 218
-4 Inside Out (FDN) 18
-4 Warden of the Inner Sky (LCI) 43
-4 Imodane's Recruiter (WOE) 229
-4 Knight-Errant of Eos (MOM) 26
-4 Resolute Reinforcements (DMU) 29
-2 Sanguine Evangelist (LCI) 34
-4 Battlefield Forge (BRO) 257
-4 Inspiring Vantage (OTJ) 269
-7 Mountain (FDN) 279
-10 Plains (FDN) 273
-
-Sideboard
-2 Destroy Evil (DMU) 17
-2 Invasion of Gobakhan (MOM) 22
-2 Lithomantic Barrage (MOM) 152`;
-
 function parseArenaDeck(rawText, providedName) {
   const lines = rawText
     .split(/\r?\n/)

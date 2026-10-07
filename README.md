@@ -1,65 +1,43 @@
 ﻿# Magicstore
 
-Proyecto separado en `frontend/` y `backend/` para importar y visualizar mazos exportados desde Magic The Gathering Arena.
+Visor de mazos de Magic The Gathering Arena a partir de los archivos `.txt` almacenados en `backend/decks`. La aplicación es de solo lectura.
 
-## Estructura
+## Cómo abrirlo
 
-- [frontend](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend>): paginas, estilos y JavaScript del cliente.
-- [backend](</c:/Users/ginge/Desktop/magic/magicdeckstore/backend>): servidor Python y almacenamiento de mazos.
-- [backend/decks](</c:/Users/ginge/Desktop/magic/magicdeckstore/backend/decks>): archivos `.txt` de cada mazo.
-
-## Backend
-
-- [backend/server.py](</c:/Users/ginge/Desktop/magic/magicdeckstore/backend/server.py>): servidor HTTP y rutas de la API.
-- [backend/deck.py](</c:/Users/ginge/Desktop/magic/magicdeckstore/backend/deck.py>): entidad `Deck` y helpers de nombre y slug.
-- [backend/deck_repository.py](</c:/Users/ginge/Desktop/magic/magicdeckstore/backend/deck_repository.py>): persistencia en disco para leer, guardar y borrar mazos.
-
-## Frontend
-
-- [frontend/index.html](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/index.html>): portada con importador y lista de mazos.
-- [frontend/deck.html](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/deck.html>): visor de mazos con lista a la izquierda y detalle a la derecha.
-- [frontend/index.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/index.js>): logica de la portada.
-- [frontend/deck.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/deck.js>): logica del visor.
-- [frontend/parser.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/parser.js>): parser del texto exportado desde MTG Arena.
-- [frontend/api.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/api.js>): llamadas al backend y transformacion de datos.
-- [frontend/ui.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/ui.js>): utilidades de interfaz compartidas.
-- [frontend/shared.js](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/shared.js>): punto comun de scripts compartidos.
-- [frontend/styles.css](</c:/Users/ginge/Desktop/magic/magicdeckstore/frontend/styles.css>): estilos globales de la aplicacion.
-
-## Diagrama de arquitectura
-
-```text
-Navegador
-  |-- / ----------------------------> frontend/index.html + index.js
-  |-- /deck ------------------------> frontend/deck.html + deck.js
-  |-- parser/api/ui/shared ---------> modulos compartidos del frontend
-  |
-  |-- GET/POST/DELETE /api/decks ---> backend/server.py
-                                      |
-                                      v
-                             backend/deck_repository.py
-                                      |
-                                      v
-                                backend/deck.py
-                                      |
-                                      v
-                             backend/decks/*.txt
-```
-## Flujo de paginas
-
-- `/` muestra el importador y la lista de mazos.
-- `/deck` muestra el visor separado.
-- Al pulsar un mazo en la portada, entras en `/deck?id=...`.
-
-## Como abrirlo
-
-Arranca el servidor local:
+Arranca el servidor local desde la raíz del proyecto:
 
 ```powershell
 python backend/server.py
 ```
 
-Luego abre `http://localhost:8000`.
+Abre `http://localhost:8000`. El visor muestra la biblioteca, permite buscar por nombre de mazo o carta y presenta las cantidades, secciones y detalles del mazo seleccionado. Las imágenes de cartas se consultan en Scryfall al pasar el cursor sobre sus nombres y requieren conexión a Internet.
 
-![Portada de Magicstore](./asset/portada.png)
+## Archivos de mazos
 
+El servidor lee los archivos `.txt` directamente de `backend/decks` en cada consulta. Para actualizar la biblioteca, añade, edita o retira los archivos en esa carpeta y recarga la página. El nombre de cada mazo corresponde al nombre del archivo sin la extensión; la lista se ordena por fecha de modificación, de más reciente a más antiguo.
+
+Los archivos usan el formato de texto de Arena, por ejemplo:
+
+```text
+Deck
+4 Lightning Strike (DMU) 137
+20 Mountain
+
+Sideboard
+2 Abrade (LCI) 131
+```
+
+Los archivos sin cartas reconocibles no aparecen en la biblioteca. Si no hay mazos disponibles, el visor muestra un estado vacío.
+
+## Estructura
+
+- `backend/server.py`: servidor HTTP, páginas y API de lectura `GET /api/decks`.
+- `backend/deck_repository.py`: lectura de los archivos `.txt`.
+- `backend/deck.py`: contenido y metadatos de cada archivo.
+- `backend/decks/`: biblioteca de mazos.
+- `frontend/deck.html` y `frontend/deck.js`: visor y selección de mazos.
+- `frontend/parser.js`: interpretación del texto de los mazos para visualizarlos.
+- `frontend/api.js`: consulta de la biblioteca y preparación de datos.
+- `frontend/ui.js` y `frontend/styles.css`: utilidades y estilos de la interfaz.
+
+Las rutas `/`, `/index.html`, `/deck` y `/deck.html` abren el mismo visor. El parámetro `id` permite enlazar un mazo concreto, por ejemplo `/deck?id=nombre-del-mazo.txt`.

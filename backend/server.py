@@ -4,7 +4,7 @@ import json
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import urlparse
 
 from deck_repository import DeckRepository
 
@@ -31,59 +31,10 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
             self.respond_json(DECK_REPOSITORY.read_all())
             return
 
-        if parsed.path in {"/", "/index.html"}:
-            self.path = "/index.html"
-        elif parsed.path in {"/deck", "/deck.html"}:
+        if parsed.path in {"/", "/index.html", "/deck", "/deck.html"}:
             self.path = "/deck.html"
 
         super().do_GET()
-
-    def do_POST(self) -> None:
-        """Guarda un mazo recibido en el cuerpo JSON de una petición POST."""
-        parsed = urlparse(self.path)
-        if parsed.path != "/api/decks":
-            self.send_error(HTTPStatus.NOT_FOUND, "Endpoint no encontrado")
-            return
-
-        try:
-            payload = self.read_json_body()
-            raw_text = str(payload.get("rawText", "")).strip()
-            name = str(payload.get("name", "")).strip()
-            source_filename = str(payload.get("sourceFilename", "")).strip()
-        except (json.JSONDecodeError, UnicodeDecodeError):
-            self.send_error(HTTPStatus.BAD_REQUEST, "JSON invalido")
-            return
-
-        if not raw_text:
-            self.send_error(HTTPStatus.BAD_REQUEST, "Falta el texto del mazo")
-            return
-
-        saved = DECK_REPOSITORY.write(name, raw_text, source_filename)
-        self.respond_json(saved, status=HTTPStatus.CREATED)
-
-    def do_DELETE(self) -> None:
-        """Elimina un mazo indicado por el parámetro id de la URL."""
-        parsed = urlparse(self.path)
-        if parsed.path != "/api/decks":
-            self.send_error(HTTPStatus.NOT_FOUND, "Endpoint no encontrado")
-            return
-
-        filename = parse_qs(parsed.query).get("id", [""])[0]
-        if not filename:
-            self.send_error(HTTPStatus.BAD_REQUEST, "Falta el id del mazo")
-            return
-
-        if not DECK_REPOSITORY.delete(filename):
-            self.send_error(HTTPStatus.NOT_FOUND, "Mazo no encontrado")
-            return
-
-        self.respond_json({"ok": True})
-
-    def read_json_body(self) -> dict:
-        """Lee y deserializa el cuerpo JSON de una petición HTTP."""
-        length = int(self.headers.get("Content-Length", "0"))
-        body = self.rfile.read(length)
-        return json.loads(body.decode("utf-8"))
 
     def respond_json(self, payload: dict | list, status: HTTPStatus = HTTPStatus.OK) -> None:
         """Envía una respuesta HTTP JSON con el contenido y el estado indicados."""
@@ -96,7 +47,6 @@ class MagicstoreHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    DECK_REPOSITORY.ensure_dir()
     server = ThreadingHTTPServer((HOST, PORT), MagicstoreHandler)
     print(f"Magicstore disponible en http://{HOST}:{PORT}")
     server.serve_forever()
